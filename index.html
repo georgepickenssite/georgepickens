@@ -1,128 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>George Pickens</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-  </head>
-  <body onload="shuffleGameCards()">
-    <div id="navbar"></div>
-
-    <div class="content">
-      <section class="wrapper">
-        <div class="top">
-          <span class="letter" style="animation-delay: 0s;">G</span>
-          <span class="letter" style="animation-delay: 0.1s;">e</span>
-          <span class="letter" style="animation-delay: 0.2s;">o</span>
-          <span class="letter" style="animation-delay: 0.3s;">r</span>
-          <span class="letter" style="animation-delay: 0.4s;">g</span>
-          <span class="letter" style="animation-delay: 0.5s;">e</span>
-          <span class="letter" style="animation-delay: 0.6s;">&nbsp;</span>
-          <span class="letter" style="animation-delay: 0.7s;">P</span>
-          <span class="letter" style="animation-delay: 0.8s;">i</span>
-          <span class="letter" style="animation-delay: 0.9s;">c</span>
-          <span class="letter" style="animation-delay: 1s;">k</span>
-          <span class="letter" style="animation-delay: 1.1s;">e</span>
-          <span class="letter" style="animation-delay: 1.2s;">n</span>
-          <span class="letter" style="animation-delay: 1.3s;">s</span>
-        </div>
-        <div class="bottom" aria-hidden="true">
-          <span class="letter" style="animation-delay: 0s;">G</span>
-          <span class="letter" style="animation-delay: 0.1s;">e</span>
-          <span class="letter" style="animation-delay: 0.2s;">o</span>
-          <span class="letter" style="animation-delay: 0.3s;">r</span>
-          <span class="letter" style="animation-delay: 0.4s;">g</span>
-          <span class="letter" style="animation-delay: 0.5s;">e</span>
-          <span class="letter" style="animation-delay: 0.6s;">&nbsp;</span>
-          <span class="letter" style="animation-delay: 0.7s;">P</span>
-          <span class="letter" style="animation-delay: 0.8s;">i</span>
-          <span class="letter" style="animation-delay: 0.9s;">c</span>
-          <span class="letter" style="animation-delay: 1s;">k</span>
-          <span class="letter" style="animation-delay: 1.1s;">e</span>
-          <span class="letter" style="animation-delay: 1.2s;">n</span>
-          <span class="letter" style="animation-delay: 1.3s;">s</span>
-        </div>
-      </section>
-    </div>
-
-    <div class="featuredupdates">
-      <div class="grid-container">
-        <button class="gamecard" onclick="location.href='games/featured'">
-          <img src="img/thumbnail/featured.png" alt="Featured Game">
-          <div class="title">Featured Game</div>
-          <div class="subtitle">Category: Action, Adventure</div>
-        </button>
-        <button class="gamecard" onclick="location.href='games/featured'">
-          <img src="img/thumbnail/featured.png" alt="Featured Game">
-          <div class="title">Featured Game</div>
-          <div class="subtitle">Category: Action, Adventure</div>
-        </button>
-        <button class="gamecard" onclick="location.href='games/featured'">
-          <img src="img/thumbnail/featured.png" alt="Featured Game">
-          <div class="title">Featured Game</div>
-          <div class="subtitle">Category: Action, Adventure</div>
-        </button>
-        <button class="gamecard" onclick="location.href='games/featured'">
-          <img src="img/thumbnail/featured.png" alt="Featured Game">
-          <div class="title">Featured Game</div>
-          <div class="subtitle">Category: Action, Adventure</div>
-        </button>
-      </div>
-      <div class="updates-info">
-        <div class="update-card">
-          <h2><a href="#">George Pickens Site: New and Improved!</a></h2>
-          <p>Welcome to our new site. We have all the same games, and them some. Additonally, our GP Movies feauture is making it's debut. The site is a work in progess, so feedback is much appreciated. Feel free to reach out with suggestions or issues. Thank you for your constant support!</p>
-        </div>
-        <div class="update-card">
-          <h2><a href="games/">GP Games</a></h2>
-          <p>Play 100+ high quality browser games across many categories.</p>
-        </div>
-        <div class="update-card">
-          <h2><a href="movies/">GP Movies</a></h2>
-          <p>Watch new movies every week. Polls to vote for new movies are on our social media. Contact us to nomiate movies.</p>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      function searchGameCards() {
-    const input = document.querySelector('.search-bar');
-    const filter = input.value.toLowerCase();
-    const gamecards = document.querySelectorAll('.gamecard');
-
-    gamecards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        if (text.includes(filter)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-function shuffleGameCards() {
-    const container = document.getElementById('gamecards-container');
-    const cards = Array.from(container.children);
-    for (let i = cards.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        container.appendChild(cards[j]);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', shuffleGameCards);
-
-fetch('dev/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                const template = document.createElement('template');
-                template.innerHTML = data;
-                const navbar = template.content.querySelector('#navbar-template').content;
-                document.getElementById('navbar').appendChild(navbar);
-            });
-    </script>
-  </body>
-</html>
+<style>
+  body {
+      background-color: black;
+      color: #FFB612;
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+  }
+  p {
+      font-weight: bold;
+      text-align: center;
+      width: 80%;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<p>
+  As of the evening of 3/27/25, LCPS has taken down George Pickens. <br><br>
+  We are assessing our options and will keep you posted as the situation progresses. <br><br>
+  This project means a lot to us, and we couldn't have done it without you all. <br><br>
+  Thank you all for your constant support. <br><br><br><br>
+  See you soon, <br><br><br><br>
+  The George Pickens Team
+</p>
