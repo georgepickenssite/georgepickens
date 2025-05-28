@@ -1,32 +1,52 @@
-# Example application that uses AWS Amplify Gen 2 and AWS AppSync Events
+# Amplify Gen 2 Chat App
 
-This example uses Next.js 15 with server actions to create two different types of chat rooms. The first is powered by Amplify AI kit, and allows users to chat with AI users. The other allows multiple users to sign in and chat with each other. The app uses AWS Amplify Gen 2 and uses various AWS services.
+A simple real-time chat app using AWS Amplify Gen 2 and vanilla HTML/JS.
 
-This app has the following features:
+## File Structure
 
-- Amplify Gen 2
-- Next.js 15
-- shadcn/ui
-- Tailwind
-- Amazon Cognito
-- AWS AppSync Events
-- AWS AppSync
-- AWS Amplify AI kit
+```
+/
+├── amplify/
+│   ├── backend/
+│   │   └── data/
+│   │       └── schema.graphql
+│   └── workflows/
+│       └── deploy.yaml
+├── public/
+│   └── index.html
+├── src/
+│   └── main.js
+├── .gitignore
+├── package.json
+└── README.md
+```
 
-## Getting Started
+## Setup
 
-### Prerequisites
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-- Node.js 18+ installed
-- AWS account that has been set up for [AWS Amplify local setup](https://docs.amplify.aws/react/start/account-setup/) and has enabled access to the Claude 3.5 sonnet model in Amazon Bedrock.
+2. If you haven't already, initialize Amplify Gen 2 (see AWS docs).
 
-### Installation
+3. Push backend and generate outputs:
+   ```bash
+   npx amplify codegen
+   npx amplify push
+   ```
 
-1. Clone the repository
-2. Install the dependencies with your favorite Javscript package manager. For example, `npm install`
-3. Run `npx ampx sandbox` to spin up a sandbox cloud backend
-4. Run `npm run dev` to start up the Next.js React app locally.
+4. Run locally:
+   ```bash
+   npx http-server public
+   ```
+   Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-## AWS Amplify Hosting
+## How it Works
 
-After testing locally you can run it in production on Amplify Hosting using this [guide](https://docs.aws.amazon.com/amplify/latest/userguide/getting-started-next.html).
+- **Amplify Gen 2** provides a real-time GraphQL API for chat messages.
+- **Frontend** is a simple HTML page and vanilla JS.
+- **No authentication**: anyone can join as any username.
+- Expand features by updating `amplify/backend/data/schema.graphql` and frontend code.
+
+---
