@@ -1,6 +1,0 @@
-type Message @model {
-  id: ID!
-  username: String!
-  content: String!
-  createdAt: AWSDateTime!
-}
